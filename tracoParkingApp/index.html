@@ -8,54 +8,23 @@
 </head>
 <body>
     <section>
-        <nav>
-            <img src="" alt="">
-            <a href=""> Cadastro </a>
-            <a href=""> Checkin </a>
-            <a href=""> Clientes </a>
-            <a href=""> Faturamento </a>
+        <nav id="link">
+            <img>
+            <div>
+                <a>Cadastro</a>
+                <a >Checkin</a>
+                <a >Clientes</a>
+                <a >Faturamento</a>
+            </div>
         </nav>
     </section>
     <section>
-        <main>
-            <form action="" id="formulario">
-                <h3> Novo Cliente </h3>
-                <ul>
-                    <li>
-                        <label> Nome do Cliente</label>
-                        <input type="text" name="" id="name" placeholder="Digite seu nome">
-                    </li>
-                    <li>
-                        <label> Modelo </label>
-                        <input type="text" name="" id="modelo" placeholder="Digite o modelo de carro">
-                    </li>
-                    <li>
-                        <label> Tipo </label>
-                        <select name="" id="tipo" type="tipo" placeholder="Tipo do Veiculo">
-                            <option value="1">Carro</option>
-                            <option value="0">Moto</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label> Placa </label>
-                        <input type="text" name="" id="placa" placeholder="Digite a placa do Veiculo">
-                    </li>
-                    <li>
-                        <label> Observações </label>
-                        <input type="text" name="" id="observacoes" placeholder="Digite a observação">
-                    </li>
-                    <li>
-                        <div>
-                            <button id="cancelar" type="reset"> Cancelar </button>
-                            <button id="salvar" type="submit"> Salvar </button>
-                        </div>
-                    </li>
-                </ul>
-                
-            </form>
+        <main id="root">
+            
         </main>
     </section>
     
 </body>
+<script type="module" src="./index.js"></script>
 <script type="module" src="./controller/cadastro.js"></script>
 </html>
