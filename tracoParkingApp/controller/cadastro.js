@@ -6,11 +6,11 @@ formulario.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const cadastroCliente = {
-        owner: document.getElementById('name'),
-        model: document.getElementById('modelo'),
-        type: document.getElementById('tipo'),
-        label: document.getElementById('placa'),
-        observation:   document.getElementById('observacoes')
+        owner: document.getElementById('name').value,
+        model: document.getElementById('modelo').value,
+        type: document.getElementById('tipo').value,
+        label: document.getElementById('placa').value,
+        observation:   document.getElementById('observacoes').value
     }
 
     postVeiculo(cadastroCliente)
