@@ -1,5 +1,5 @@
 
-export const getCadastro = () => {
+const getCadastro = () => {
     const main = document.getElementById('root')
     const formHtml = `
     <form action="" id="formulario">
@@ -39,4 +39,31 @@ export const getCadastro = () => {
     </form>
     `
     main.innerHTML = formHtml
+}
+
+const getListaClientesHtml = () => {
+    const main = document.getElementById('root');
+
+    const dadosHtml = `
+    <div>
+    <h1>Lista de clientes</h1>
+    <table>
+        <tr>
+            <th>Cliente</th>
+            <th>Modelo</th>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Observações</th>
+            <th><a>Novo</a></th>
+        </tr>
+    </table>
+</div>
+    `
+
+    main.innerHTML = dadosHtml;
+}
+
+export const view = {
+    getCadastro,
+    getListaClientesHtml
 }
