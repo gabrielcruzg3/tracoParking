@@ -1,3 +1,5 @@
+import { postVeiculo } from "../service/index.js";
+
 
 const formulario = document.getElementById('formulario');
 formulario.addEventListener('submit', function(e) {
@@ -10,4 +12,6 @@ formulario.addEventListener('submit', function(e) {
         label: document.getElementById('placa'),
         observation:   document.getElementById('observacoes')
     }
+
+    postVeiculo(cadastroCliente)
 })
