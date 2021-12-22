@@ -1,4 +1,4 @@
-import { postVeiculo } from "../service/index.js";
+import { service } from "../service/index.js";
 import { view } from "../view/index.js";
 
 export const cadastroComponent = () => {    
@@ -16,6 +16,6 @@ export const cadastroComponent = () => {
             observation: document.getElementById('observacoes').value
         }
 
-        postVeiculo(cadastroCliente)
+        service.postVeiculo(cadastroCliente)
     })
 }

@@ -47,7 +47,7 @@ const getListaClientesHtml = () => {
     const dadosHtml = `
     <div>
     <h1>Lista de clientes</h1>
-    <table>
+    <table id="tbody">
         <tr>
             <th>Cliente</th>
             <th>Modelo</th>
