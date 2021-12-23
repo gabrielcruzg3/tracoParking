@@ -84,6 +84,19 @@ export const activityCheckout = async (req, res) => {
 }
 
 export const listActivities =  async (req, res) => {
+    
+    const db = await openDB()
+    const activities = await db.all(
+        `SELECT * FROM activities
+        
+    `);
+    db.close()
+    
+    res.send(activities)
+}
+
+export const removeActivity = async (req, res) => {
+
     const { id } = req.params;
 
     const db = await openDB();
@@ -97,16 +110,4 @@ export const listActivities =  async (req, res) => {
     res.send({
         id,message: `Atividade [${id}] removida com sucesso!`
     })
-}
-
-export const removeActivity = async (req, res) => {
-
-    const db = await openDB()
-    const activities = await db.all(
-        `SELECT * FROM activities
-        
-    `);
-    db.close()
-    
-    res.send(activities)
 }
