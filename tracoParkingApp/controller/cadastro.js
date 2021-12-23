@@ -1,7 +1,16 @@
 import { service } from "../service/index.js";
 import { view } from "../view/index.js";
 
-export const cadastroComponent = () => {    
+export const cadastroComponent = () => {   
+    const label = []        
+    service.getVeiculos().then((data) => {
+        data.forEach(element => {
+            if(element.label != null) {
+                label.push(element.label)
+            }
+        });
+    })
+
     view.getCadastro()
 
     const formulario = document.getElementById('formulario');
@@ -16,6 +25,14 @@ export const cadastroComponent = () => {
             observation: document.getElementById('observacoes').value
         }
 
-        service.postVeiculo(cadastroCliente)
+    
+
+        if(label.includes(cadastroCliente.label)){
+            return alert(`Essa placa: ${cadastroCliente.label} já foi cadastrada.`)
+        }else{            
+            service.postVeiculo(cadastroCliente)
+        }
+        
+
     })
 }

@@ -11,9 +11,9 @@ const postVeiculo = (objetoCliente) => {
         body: JSON.stringify(objetoCliente)
     }).then((res) => {
         if(res.status != 200){
-            alert(`Erro num: ${res.status}`)
+            console.log(`Erro num: ${res.status}`)
         }else{
-            alert(`Sucesso! Cód: ${res.status}`)
+            console.log(`Sucesso! Cód: ${res.status}`)
         }
     })
 }
@@ -27,9 +27,9 @@ const postCheckin = (label) => {
         body: JSON.stringify({label})
     }).then((res) => {
         if(res.status != 200){
-            alert(`Erro num: ${res.status}`)
+            console.log(`Erro num: ${res.status}`)
         }else{
-            alert(`Sucesso! Cód: ${res.status}`)
+            console.log(`Sucesso! Cód: ${res.status}`)
             return res.json()
         }
     })
@@ -83,7 +83,7 @@ const deletaVeiculo = (id) => {
         method: "DELETE"
     }).then((res) => {
         if(res.status != 200){
-            alert(`Erro num: ${res.status}`)
+            console.log(`Erro num: ${res.status}`)
         }else{
             console.log(`Sucesso! Cód: ${res.status}`)
             return res.json()

@@ -8,7 +8,6 @@ import { view } from "../view/index.js"
 
     service.getActivities()
         .then((data) => {
-            console.log(data)
             data.forEach(element => {
                 if(element != null){
                     idCheckin.push(element.vehicle_id)
@@ -43,7 +42,7 @@ const criarNovaLinha = (obj) => {
     <td>${obj.model}</td>
     <td>${obj.label}</td>
     <td>
-        a id="${obl.id}" class="btn-link editar" > Checkout </a>                    
+        <a id="${obj.id}" class="btn-link editar" > Checkout </a>                    
     </td>
     `
     novaLinha.innerHTML = dadosHtml

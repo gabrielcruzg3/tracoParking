@@ -3,6 +3,16 @@ import { view } from "../view/index.js"
 import { listaClienteComponent } from "./listaClientes.js"
 
 export const atualizaComponent = (idParam) => {
+
+    const label = []
+    service.getVeiculos().then(data => {
+        data.forEach(element => {
+            if(element.label != null) {
+                label.push(element.label)
+            }
+        });
+    })
+
     view.getAtualizaHtml()
 
     service.getVeiculos().then(data => {
@@ -13,6 +23,7 @@ export const atualizaComponent = (idParam) => {
             
         });
     })
+    
     const formulario = document.getElementById('formulario');
     formulario.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -24,10 +35,16 @@ export const atualizaComponent = (idParam) => {
             label: document.getElementById('placa').value,
             observation: document.getElementById('observacoes').value
         }
-        service.putVeiculo(atualizaCliente, idParam).then(() => {
-            cancelar()
-            listaClienteComponent()
-        })
+
+        if((label.includes(atualizaCliente.label))){
+            return alert(`Essa placa: ${atualizaCliente.label} já foi cadastrada.`)
+        }else{
+            
+            service.putVeiculo(atualizaCliente, idParam).then(() => {
+                cancelar()
+                listaClienteComponent()
+            })
+        }
         
 
     })
