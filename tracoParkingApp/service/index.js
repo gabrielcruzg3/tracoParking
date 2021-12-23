@@ -1,5 +1,6 @@
 
 const url = "http://localhost:8000/api"
+
 // ----------POST-----------------------------
 const postVeiculo = (objetoCliente) => {
     return fetch(url + "/vehicles", {
@@ -29,9 +30,28 @@ const getVeiculos = () => {
         }
     })
 }
+//-------------------PUT---------------------
+const putVeiculo = (objetoCliente, id) => {
+    return fetch(`${url}/vehicles/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(objetoCliente)
+    }).then((res) => {
+        if(res.status != 200){
+            alert(`Erro num: ${res.status}`)
+        }else{
+            console.log(`Sucesso! Cód: ${res.status}`)
+            return res.json()
+        }
+    })
+}
+
 
 // ---------------------- EXPORT ---------------------
 export const service = {
     postVeiculo,
-    getVeiculos
+    getVeiculos,
+    putVeiculo
 }
