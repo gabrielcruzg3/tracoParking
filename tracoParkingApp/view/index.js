@@ -105,8 +105,40 @@ const getListaClientesHtml = () => {
     main.innerHTML = dadosHtml;
 }
 
+const getCheckinHtml = () => {
+    const main = document.getElementById('root');
+
+    const dadosHtml = `
+        <div>
+            <h3>Clientes no estacionamento</h3>
+            <br>
+            <table id="tbody" class="table">
+                <tr>
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                    <th>Opção</th>
+                </tr>
+            </table>
+
+            <div>
+                <label for="">Placa</label>
+                <select name="" class="input" id="selet"></select>
+                <a type="button" id="adicionar-novo">Adicionar Novo</a>
+                <br>
+                <div class="btn">
+                    <button id="checkin" class="btn-link">Checkin</button>
+                </div>
+            </div>
+        </div>
+    
+    `
+
+    main.innerHTML = dadosHtml;
+}
+
 export const view = {
     getCadastro,
     getListaClientesHtml,
-    getAtualizaHtml
+    getAtualizaHtml,
+    getCheckinHtml
 }

@@ -14,7 +14,7 @@ link.addEventListener('click', (e) => {
             listaClienteComponent();
             break
         case "Checkin":
-            "blank"
+            window.location.href = "./checkin.html"
             break
         case "Faturamento":
             "blank"
