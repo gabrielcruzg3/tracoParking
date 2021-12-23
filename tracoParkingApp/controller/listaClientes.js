@@ -24,7 +24,7 @@ export const listaClienteComponent = () => {
             atualizaComponent(id)
         }
         if(button === 'Excluir'){
-
+            deletar(id)
         }
         if(button === 'Novo'){
             cadastroComponent()
@@ -58,3 +58,8 @@ const criarNovaLinha = (cliente, modelo, placa, tipo, observacao, id) => {
     
 }
 
+const deletar = (id)=> { 
+    service.deletaVeiculo(id).then( () => {
+        listaClienteComponent()
+    })
+}

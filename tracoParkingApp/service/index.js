@@ -47,11 +47,27 @@ const putVeiculo = (objetoCliente, id) => {
         }
     })
 }
+// -----------------------DELETE--------------------
+
+const deletaVeiculo = (id) => {
+    return fetch(`${url}/vehicles/${id}`, {
+        method: "DELETE"
+    }).then((res) => {
+        if(res.status != 200){
+            alert(`Erro num: ${res.status}`)
+        }else{
+            console.log(`Sucesso! Cód: ${res.status}`)
+            return res.json()
+        }
+    })
+}
+    
 
 
 // ---------------------- EXPORT ---------------------
 export const service = {
     postVeiculo,
     getVeiculos,
-    putVeiculo
+    putVeiculo,
+    deletaVeiculo
 }

@@ -24,9 +24,11 @@ export const atualizaComponent = (idParam) => {
             label: document.getElementById('placa').value,
             observation: document.getElementById('observacoes').value
         }
-        service.putVeiculo(atualizaCliente, idParam)
-        cancelar()
-        listaClienteComponent()
+        service.putVeiculo(atualizaCliente, idParam).then(() => {
+            cancelar()
+            listaClienteComponent()
+        })
+        
 
     })
 }
