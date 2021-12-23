@@ -1,22 +1,26 @@
 import { service } from "../service/index.js"
 import { view } from "../view/index.js"
 
-// const checkinComponent = () => {
-    view.getCheckinHtml()
-    let idCheckin = []
-    
 
-    service.getActivities().then((data) => {
-        data.forEach(element => {
-            if(element != null){
-                idCheckin.push(element.vehicle_id)
-            }     
-        });
+    view.getCheckinHtml()
+
+    let idCheckin = []    
+
+    service.getActivities()
+        .then((data) => {
+            console.log(data)
+            data.forEach(element => {
+                if(element != null){
+                    idCheckin.push(element.vehicle_id)
+                }   
+                 
+            });
+            
         getVeiculo()
     })
-// }
 
 let arrayVeiculos = [];
+
 const getVeiculo = () => {
     service.getVeiculos().then(data => {
         data.forEach(element => {
@@ -51,6 +55,47 @@ const criarOptions = (arrayVeiculos) => {
     arrayVeiculos.forEach(element => {
         idCheckin.includes(element.id) ?
             console.log("Já está está estacionado") :
-            console.log('Não está estacionado')
+            veiculosFiltrados.push(element)
     })
+    const select = document.getElementById('select')
+    veiculosFiltrados.forEach(element => {
+        const option = new Option(element.label, element.id)
+        select.add(option)
+    })
+}
+
+const main = document.getElementById('root')
+main.addEventListener('click', (e) => {
+    const button = e.path[0].innerText;
+    const id = e.path[0].id
+    
+    
+    if(button === 'Checkout'){
+        // checkout(id)
+    }
+    if(button === 'Checkin'){
+       const select = document.getElementById('select')
+       searchId(select.value)
+    }
+    if(button === 'Adcionar Novo'){
+        // cadastroComponent()
+    }
+})
+
+const searchId = (id) => {
+    service.getVeiculos().then(data => {
+        data.forEach(element => {
+            if(element.id == id){
+                checkinApi(element)
+            }
+        })
+    })
+}
+
+const checkinApi = (obj) => {
+    service.postCheckin(obj.label)
+        .then((data) => {
+            alert(data.message)
+            window.location.reload()
+        })
 }

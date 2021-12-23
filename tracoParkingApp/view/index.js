@@ -122,7 +122,7 @@ const getCheckinHtml = () => {
 
             <div>
                 <label for="">Placa</label>
-                <select name="" class="input" id="selet"></select>
+                <select name="" class="input" id="select"></select>
                 <a type="button" id="adicionar-novo">Adicionar Novo</a>
                 <br>
                 <div class="btn">
