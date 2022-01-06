@@ -1,42 +1,54 @@
+const getIndex = () => {
+    const main = document.getElementById('root')
+    const dadosHtml = `
+      <section class="index">
+        <h1 class="index__item">Bem vindo ao modulo 3 newDev() Traco!</h1>
+        <a class="index__link" href="../checkin.html"><img src="../assets/img/traco-principal.png" /></a>
+      </section>
+      `
+    main.innerHTML = dadosHtml
+}
+
+const getSpinner = () => {
+    const main = document.getElementById('root')
+    const dadosHtml = `
+    <section class="container">
+        <div id="spinner"></div>
+    </section>
+      `
+    main.innerHTML = dadosHtml
+
+}
 
 const getCadastro = () => {
     const main = document.getElementById('root')
     const formHtml = `
-    <form action="" id="formulario">
-    <h3> Novo Cliente </h3>
-    <ul>
-        <li>
-            <label> Nome do Cliente</label>
-            <input type="text" name="" id="name" placeholder="Digite seu nome">
-        </li>
-        <li>
-            <label> Modelo </label>
-            <input type="text" name="" id="modelo" placeholder="Digite o modelo de carro">
-        </li>
-        <li>
-            <label> Tipo </label>
-            <select name="" id="tipo" type="tipo" placeholder="Tipo do Veiculo">
+        <form class="cadastro" id="formulario">
+            <h1 class="cadastro__titulo">Novo Cliente</h1>
+
+            <label>Nome do Cliente</label>
+            <input id="name" type="text" placeholder="Digite o seu nome">
+
+            <label>Modelo</label>
+            <input id="modelo" type="text" placeholder="Digite o modelo do veículo">
+
+            <label>Tipo</label>
+            <select id="tipo" type="text" placeholder="Digite o tipo do veículo">
                 <option value="1">Carro</option>
                 <option value="0">Moto</option>
             </select>
-        </li>
-        <li>
-            <label> Placa </label>
-            <input type="text" name="" id="placa" placeholder="Digite a placa do Veiculo">
-        </li>
-        <li>
-            <label> Observações </label>
-            <input type="text" name="" id="observacoes" placeholder="Digite a observação">
-        </li>
-        <li>
-            <div>
-                <button id="cancelar" type="reset"> Cancelar </button>
-                <button id="salvar" type="submit"> Salvar </button>
-            </div>
-        </li>
-    </ul>
 
-    </form>
+            <label>Placa</label>
+            <input id="placa" type="text" placeholder="Digite a placa do veículo">
+
+            <label>Observações</label>
+            <input id="observacoes" type="text" placeholder="Digite a observação:">
+
+            <div class="cadastro__item">
+                <button class="button" id="cancelar" type="button">Cancelar</button>
+                <button class="button" id="salvar" type="submit">Salvar</button>
+            </div>
+        </form>
     `
     main.innerHTML = formHtml
 }
@@ -87,19 +99,19 @@ const getListaClientesHtml = () => {
     const main = document.getElementById('root');
 
     const dadosHtml = `
-    <div>
-    <h1>Lista de clientes</h1>
-    <table id="tbody">
-        <tr>
-            <th>Cliente</th>
-            <th>Modelo</th>
-            <th>Placa</th>
-            <th>Tipo</th>
-            <th>Observações</th>
-            <th><a>Novo</a></th>
-        </tr>
-    </table>
-</div>
+        <section class="lista-cliente">
+            <h1 class="lista-cliente__title">Lista de Clientes</h1>
+            <table class="lista-cliente__table" id="tbody">
+            <tr>
+                <th class="none">Cliente</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th class="none">Tipo</th>
+                <th class="none">Observações</th>
+                <th><a>Novo</a></th>
+            </tr>
+            </table>
+        </section>
     `
 
     main.innerHTML = dadosHtml;
@@ -109,36 +121,104 @@ const getCheckinHtml = () => {
     const main = document.getElementById('root');
 
     const dadosHtml = `
-        <div>
-            <h3>Clientes no estacionamento</h3>
-            <br>
-            <table id="tbody" class="table">
-                <tr>
-                    <th>Modelo</th>
-                    <th>Placa</th>
-                    <th>Opção</th>
-                </tr>
+        <section class="checkin">
+            <h2 class="checkin__title">Lista de Clientes no Estacionamento</h2>
+            <table id="tbody" class="checkin__table">
+            <tr>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Opção</th>
+            </tr>
             </table>
-
-            <div>
-                <label for="">Placa</label>
-                <select name="" class="input" id="select"></select>
-                <a type="button" id="adicionar-novo">Adicionar Novo</a>
-                <br>
-                <div class="btn">
-                    <button id="checkin" class="btn-link">Checkin</button>
-                </div>
+            <div class="checkin__item">
+            <label>Placa</label>
+            <select class="checkin__input" id="select"></select>
+            <a type="button" id="adicionar-novo" class="checkin__item__link">Adicionar Novo</a>
+            <div class="checkin__button">
+                <button class="button" id="checkin">Checkin</button>
             </div>
-        </div>
+            </div>
+        </section>
     
     `
 
     main.innerHTML = dadosHtml;
 }
 
+
+const getCheckoutHtml = () => {
+    const main = document.getElementById('root');
+
+    const dadosHtml = `
+    <section class="checkout">
+            <h2 class="checkout__title">Dados do cliente</h2>
+            <table class="checkout__table">
+                <tr>
+                    <th>Cliente</th>
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                </tr>
+                <tr id="tbody"></tr>
+            </table>
+            <div class="checkout__item">
+            <label>Total de Horas</label>
+            <input
+                id="totalHora"
+                class="input"
+                type="text"
+                placeholder="Total de Horas"
+                disabled
+            />
+            </div>
+            <div class="checkout__item">
+            <label>Valor a pagar</label>
+            <input
+                id="valorPagar"
+                class="input"
+                type="text"
+                placeholder="Valor a pagar"
+                disabled
+            />
+            </div>
+            <div class="checkout__button">
+                <button class="button" id="finalizar">Finalizar</button>
+            </div>
+        </section>
+    `
+
+    main.innerHTML = dadosHtml;
+}
+
+const getFaturamentoHtml = () => {
+    const main = document.getElementById('root')
+    const dadosHtml = `
+          <section class="faturamento">
+            <h1 class="faturamento__title">Lista de Faturamento</h1>
+            <table class="faturamento__table">
+                <thead>
+                <tr>
+                    <th>Qtd Veiculos</th>
+                    <th>Total</th>
+                    <th>Dia</th>
+                </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+            <div>
+                <div class="faturamento__grafico" id="piechart_3d"></div>
+            </div>
+          </section>
+      `
+    main.innerHTML = dadosHtml
+}
+
 export const view = {
     getCadastro,
     getListaClientesHtml,
     getAtualizaHtml,
-    getCheckinHtml
+    getCheckinHtml,
+    getCheckoutHtml,
+    getFaturamentoHtml,
+    getSpinner,
+    getIndex
 }

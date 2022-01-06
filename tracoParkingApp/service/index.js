@@ -1,7 +1,7 @@
-
 const url = "http://localhost:8000/api"
 
 // ----------POST-----------------------------
+
 const postVeiculo = (objetoCliente) => {
     return fetch(url + "/vehicles", {
         method: "POST",
@@ -36,6 +36,7 @@ const postCheckin = (label) => {
 }
 
 // -----------GET-------------------
+
 const getVeiculos = () => {
     return fetch(url + "/vehicles")
     .then((res) => {
@@ -59,7 +60,9 @@ const getActivities = () => {
         }
     })
 }
+
 //-------------------PUT---------------------
+
 const putVeiculo = (objetoCliente, id) => {
     return fetch(`${url}/vehicles/${id}`, {
         method: "PUT",
@@ -76,6 +79,23 @@ const putVeiculo = (objetoCliente, id) => {
         }
     })
 }
+
+const putCheckout = (obj) => {
+    return fetch(`${url}/activities/checkout`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj) 
+    }).then((response) => {
+       if(response.status != 200){
+           console.log(`Erro no servidor: ${response.status}`)
+       }else {
+           return response.json()
+       }
+    })
+}
+
 // -----------------------DELETE--------------------
 
 const deletaVeiculo = (id) => {
@@ -91,14 +111,14 @@ const deletaVeiculo = (id) => {
     })
 }
     
-
-
 // ---------------------- EXPORT ---------------------
+
 export const service = {
     postVeiculo,
     getVeiculos,
     putVeiculo,
     deletaVeiculo,
     getActivities,
-    postCheckin
+    postCheckin,
+    putCheckout
 }

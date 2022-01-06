@@ -39,18 +39,18 @@ const criarNovaLinha = (cliente, modelo, placa, tipo, observacao, id) => {
     const table = document.getElementById('tbody')
     const novaLinha = document.createElement('tr')
 
-    const dadosHtml = /*html*/`
-    <td>${cliente}</td>
-    <td>${modelo}</td>
-    <td>${placa}</td>
-    <td>${tipo}</td>
-    <td>${observacao}</td>
-    <td>
-        <div class="lista-btn">
-            <a id="${id}" class="btn-link editar" > Editar </a>
-            <a id="${id}" class="btn-link exlcluir" > Excluir </a>
-        </div>
-    </td>
+    const dadosHtml =`
+        <td class="none">${cliente}</td>
+        <td>${modelo}</td>
+        <td>${placa}</td>
+        <td class="none">${tipo}</td>
+        <td class="none">${observacao}</td>
+        <td>
+            <div class="lista-cliente__container__button">
+                <a id="${id}" class="lista-cliente__table__button">Editar</a>
+                <a id="${id}" class="lista-cliente__table__button">Excluir</a>
+            </div>
+        </td>
     `
     novaLinha.innerHTML = dadosHtml
     return table.appendChild(novaLinha)
