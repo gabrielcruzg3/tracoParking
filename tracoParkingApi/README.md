@@ -2,8 +2,9 @@
 
 Projeto desenvolvido durante o programa newDev() da Traco.
 
-> "npm run dev" para subir o server, porta 8000.
+> "npm install nodemon"
 
+> "npm run dev" para subir o server, porta 8000.
 
 ### Rotas vehicles:
     GET: /api/vehicles           
