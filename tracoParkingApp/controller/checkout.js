@@ -31,8 +31,8 @@ const adicionaParametrosNaTela = (obj) => {
 }
 
 const buscarRegistro = (id) => {
-    service.getActivities().then((dados) => {
-        dados.forEach((element) => {
+    service.getActivities().then((data) => {
+        data.forEach((element) => {
             if (element.vehicle_id == id) {
                 adicionaParametrosNoInput(element)
             }
@@ -90,6 +90,7 @@ const calculaHora = (tempoEmMilissegundos) => {
 
 const checkoutAPI = (obj) => {
     service.putCheckout(obj).then(()=> {
-        window.location.href = "../checkin.html"
+        console.log(obj)
+        // window.location.href = "../checkin.html"
     })
 }

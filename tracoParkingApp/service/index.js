@@ -1,4 +1,5 @@
-const url = "http://localhost:8000/api"
+const url = "http://127.0.0.1:8000/api"
+// const url = "https://traco-3.herokuapp.com/api"
 
 // ----------POST-----------------------------
 
@@ -80,14 +81,15 @@ const putVeiculo = (objetoCliente, id) => {
     })
 }
 
-const putCheckout = (obj) => {
-    return fetch(`${url}/activities/checkout`, {
+const putCheckout = (objeto) => {
+    return fetch(url + "/activities/checkout", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(obj) 
+        body: JSON.stringify(objeto) 
     }).then((response) => {
+        console.log(response)
        if(response.status != 200){
            console.log(`Erro no servidor: ${response.status}`)
        }else {

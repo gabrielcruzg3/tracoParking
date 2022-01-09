@@ -56,8 +56,8 @@ setTimeout(()=> {
         const veiculosFiltrados = []
         arrayVeiculos.forEach(element => {
             idCheckin.includes(element.id) ?
-                console.log("Já está está estacionado") :
-                veiculosFiltrados.push(element)
+                console.log(`Já está está estacionado: ${element.label}`) :
+                    veiculosFiltrados.push(element)
         })
         const select = document.getElementById('select')
         veiculosFiltrados.forEach(element => {
