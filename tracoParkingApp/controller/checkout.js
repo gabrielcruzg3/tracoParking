@@ -91,6 +91,6 @@ const calculaHora = (tempoEmMilissegundos) => {
 const checkoutAPI = (obj) => {
     service.putCheckout(obj).then(()=> {
         console.log(obj)
-        // window.location.href = "../checkin.html"
+        window.location.href = "../checkin.html"
     })
 }

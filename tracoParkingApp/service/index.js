@@ -81,19 +81,18 @@ const putVeiculo = (objetoCliente, id) => {
     })
 }
 
-const putCheckout = (objeto) => {
+const putCheckout = (obj) => {
     return fetch(url + "/activities/checkout", {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(objeto) 
-    }).then((response) => {
-        console.log(response)
-       if(response.status != 200){
-           console.log(`Erro no servidor: ${response.status}`)
+        body: JSON.stringify(obj) 
+    }).then((res) => {
+       if(res.status != 200){
+           console.log(`Erro num: ${res.status}`)
        }else {
-           return response.json()
+           return res.json()
        }
     })
 }

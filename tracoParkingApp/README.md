@@ -4,3 +4,5 @@
 
 > "npm install -g browser-sync"
 ###### "sudo npm install -g browser-sync" se for linux
+## Issue:
+    Checkout não funcional.
