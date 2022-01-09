@@ -1,0 +1,26 @@
+{
+  "name": "tracoparkingapi",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido durante o programa newDev().",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielcruzg3/tracoParking.git"
+  },
+  "author": "gabrielcruzg3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielcruzg3/tracoParking/issues"
+  },
+  "homepage": "https://github.com/gabrielcruzg3/tracoParking#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  }
+}

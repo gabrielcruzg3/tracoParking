@@ -1,0 +1,19 @@
+{
+  "name": "tracoparkingapp",
+  "version": "1.0.0",
+  "description": "rojeto desenvolvido durante o programa newDev(), modulo 3.",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --file . --host --port 5000 --startPath index.html" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielcruzg3/tracoParking.git"
+  },
+  "author": "@gabrielcruzg3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielcruzg3/tracoParking/issues"
+  },
+  "homepage": "https://github.com/gabrielcruzg3/tracoParking#readme"
+}
